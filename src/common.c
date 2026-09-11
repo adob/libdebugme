@@ -15,7 +15,7 @@
 int just_print(int fd, const char *msg) {
   size_t to_write = strlen(msg);
   while(to_write) {
-    int res = write(fd, msg, to_write);
+    ssize_t res = write(fd, msg, to_write);
     if(res < 0) {
       if(errno == EINTR)
         continue;
